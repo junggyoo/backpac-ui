@@ -19,7 +19,10 @@ export default function CardStarPoint({ starPoint = 0 }: CardStarPointProps) {
   );
 }
 
-const CardStarPointWrapper = styled.div``;
+const CardStarPointWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
 const StarPoint = styled.span<{ isPoint: number | boolean }>`
   display: inline-block;
