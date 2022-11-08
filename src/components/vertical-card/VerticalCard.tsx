@@ -16,4 +16,5 @@ const VerticalCardWrapper = styled.div<{ width: string }>`
   display: flex;
   width: ${({ width }) => width};
   height: calc(${({ width }) => width} * 0.4);
+  cursor: pointer;
 `;
