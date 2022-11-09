@@ -1,6 +1,6 @@
+import styled from 'styled-components';
 import { CardStarPoint } from 'components/card';
 import Divider from 'components/divider';
-import styled from 'styled-components';
 
 interface VerticalCardContentProps {
   title: string;

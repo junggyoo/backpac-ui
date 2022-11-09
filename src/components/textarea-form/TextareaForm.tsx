@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 
 interface TextareaFormProps {
-  value: string;
+  value?: string;
   placeholder?: string;
   disabled?: boolean;
   readonly?: boolean;
@@ -12,7 +12,7 @@ interface TextareaFormProps {
 }
 
 export default function TextareaForm({
-  value,
+  value = '',
   placeholder,
   disabled = false,
   readonly = false,
@@ -21,6 +21,7 @@ export default function TextareaForm({
   onChange,
 }: TextareaFormProps) {
   const initialValue = useRef<string>(value);
+
   const [isChangedInitialValue, setIsChangedInitialValue] = useState(false);
   const [restNumberOfText, setRestNumberOfText] = useState(
     maxNumberOfText - value.length
@@ -45,8 +46,8 @@ export default function TextareaForm({
           placeholder={placeholder}
           disabled={disabled}
           readOnly={readonly}
-          onChange={handleChange}
           maxLength={maxNumberOfText}
+          onChange={handleChange}
         />
         <TextCount>{restNumberOfText}</TextCount>
       </TextareaWrapper>
@@ -59,7 +60,7 @@ export default function TextareaForm({
   );
 }
 
-const TextareaFormWrapper = styled.div`
+const TextareaFormWrapper = styled.form`
   display: flex;
   width: 100%;
 `;
@@ -72,12 +73,12 @@ const TextareaWrapper = styled.div`
 const Textarea = styled.textarea<{ disabled: boolean; readOnly: boolean }>`
   width: 100%;
   height: 100px;
-  resize: none;
-  border: 1px solid lightgray;
-  border-radius: 3px;
   padding: 10px;
   font-size: 15px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
   outline-color: #81c6e8;
+  resize: none;
 
   ${({ disabled }) =>
     disabled &&

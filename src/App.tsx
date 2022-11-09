@@ -25,6 +25,10 @@ export default function App() {
             text="Lorem ipsum dolor sit amet consectetur adipisicing"
           />
         </Card>
+        <Card>
+          <CardMedia src="assets/idus.png" alt="idus" />
+          <CardContent label="Card Label" title="Card Title" />
+        </Card>
         <VerticalCard>
           <VerticalCardMedia src="assets/idus.png" alt="idus" />
           <VerticalCardContent
