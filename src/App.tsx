@@ -1,12 +1,19 @@
+import { useState } from 'react';
+import styled from 'styled-components';
 import { Card, CardContent, CardMedia, CardBottom } from 'components/card';
+import { TextareaForm } from 'components/textarea-form';
 import {
   VerticalCard,
   VerticalCardContent,
   VerticalCardMedia,
 } from 'components/vertical-card';
-import styled from 'styled-components';
 
 export default function App() {
+  const [text, setText] = useState('초기값이 있을 수 있습니다.');
+
+  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setText(e.target.value);
+  };
   return (
     <AppWrapper>
       <CardUIView>
@@ -28,6 +35,13 @@ export default function App() {
           />
         </VerticalCard>
       </CardUIView>
+      <InputFormUIView>
+        <TextareaForm
+          placeholder="내용을 입력해주세요."
+          value={text}
+          onChange={handleTextChange}
+        />
+      </InputFormUIView>
     </AppWrapper>
   );
 }
@@ -39,4 +53,8 @@ const AppWrapper = styled.main`
 const CardUIView = styled.section`
   display: flex;
   gap: 20px;
+`;
+
+const InputFormUIView = styled(CardUIView)`
+  margin-top: 100px;
 `;
