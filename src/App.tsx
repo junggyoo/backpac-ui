@@ -9,7 +9,7 @@ import {
 } from 'components/vertical-card';
 
 export default function App() {
-  const [text, setText] = useState('초기값이 있을 수 있습니다.');
+  const [text, setText] = useState('Default 상태입니다.');
 
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setText(e.target.value);
@@ -42,6 +42,18 @@ export default function App() {
           maxNumberOfText={500}
           onChange={handleTextChange}
         />
+        <TextareaForm
+          placeholder="내용을 입력해주세요."
+          value="Disabled 상태입니다."
+          maxNumberOfText={500}
+          disabled
+        />
+        <TextareaForm
+          placeholder="내용을 입력해주세요."
+          value="Readonly 상태입니다."
+          maxNumberOfText={500}
+          readonly
+        />
       </InputFormUIView>
     </AppWrapper>
   );
@@ -56,6 +68,9 @@ const CardUIView = styled.section`
   gap: 20px;
 `;
 
-const InputFormUIView = styled(CardUIView)`
+const InputFormUIView = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   margin-top: 100px;
 `;
