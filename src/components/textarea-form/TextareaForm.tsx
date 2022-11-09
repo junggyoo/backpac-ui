@@ -6,6 +6,7 @@ interface TextareaFormProps {
   placeholder?: string;
   disabled?: boolean;
   readonly?: boolean;
+  maxNumberOfText?: number;
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
@@ -14,14 +15,19 @@ export default function TextareaForm({
   placeholder,
   disabled,
   readonly,
+  maxNumberOfText = 100,
   onChange,
 }: TextareaFormProps) {
   const initialValue = useRef<string>(value);
   const [isChangedInitialValue, setIsChangedInitialValue] = useState(false);
+  const [restNumberOfText, setRestNumberOfText] = useState(
+    maxNumberOfText - value.length
+  );
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (onChange) {
       onChange(e);
+      setRestNumberOfText(maxNumberOfText - e.target.value.length);
       if (initialValue && initialValue.current !== e.target.value) {
         setIsChangedInitialValue(true);
       } else {
@@ -38,8 +44,9 @@ export default function TextareaForm({
           disabled={disabled}
           readOnly={readonly}
           onChange={handleChange}
+          maxLength={maxNumberOfText}
         />
-        <TextCount>{value?.length || 0}</TextCount>
+        <TextCount>{restNumberOfText}</TextCount>
       </TextareaWrapper>
       {isChangedInitialValue && <SaveButton type="button">Save</SaveButton>}
     </TextareaFormWrapper>
@@ -61,13 +68,14 @@ const Textarea = styled.textarea`
   height: 100px;
   resize: none;
   border: 1px solid lightgray;
-  border-radius: 5px;
+  border-radius: 3px;
   padding: 10px;
   font-size: 16px;
   outline-color: #7de5ed;
 
   &:disabled {
     color: #ff7d7d;
+    border: 1px solid lightgray;
     opacity: 0.7;
   }
 `;

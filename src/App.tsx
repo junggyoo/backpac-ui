@@ -39,8 +39,8 @@ export default function App() {
         <TextareaForm
           placeholder="내용을 입력해주세요."
           value={text}
+          maxNumberOfText={500}
           onChange={handleTextChange}
-          disabled
         />
       </InputFormUIView>
     </AppWrapper>
