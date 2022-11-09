@@ -40,6 +40,7 @@ export default function App() {
           placeholder="내용을 입력해주세요."
           value={text}
           onChange={handleTextChange}
+          disabled
         />
       </InputFormUIView>
     </AppWrapper>

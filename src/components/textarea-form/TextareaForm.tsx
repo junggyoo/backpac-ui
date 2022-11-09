@@ -65,6 +65,11 @@ const Textarea = styled.textarea`
   padding: 10px;
   font-size: 16px;
   outline-color: #7de5ed;
+
+  &:disabled {
+    color: #ff7d7d;
+    opacity: 0.7;
+  }
 `;
 
 const TextCount = styled.span`
