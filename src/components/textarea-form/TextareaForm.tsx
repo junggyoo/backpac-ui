@@ -70,13 +70,18 @@ const Textarea = styled.textarea`
   border: 1px solid lightgray;
   border-radius: 3px;
   padding: 10px;
-  font-size: 16px;
-  outline-color: #7de5ed;
+  font-size: 15px;
+  outline-color: #81c6e8;
 
   &:disabled {
     color: #ff7d7d;
     border: 1px solid lightgray;
     opacity: 0.7;
+  }
+
+  &:read-only {
+    border: 1px solid black;
+    outline: none;
   }
 `;
 
@@ -93,9 +98,10 @@ const SaveButton = styled.button`
   height: 100px;
   margin-left: 5px;
   padding: 5px 10px;
+  font-size: 14px;
+  color: #81c6e8;
+  background-color: #fff;
   border: 1px solid lightgray;
   border-radius: 5px;
-  background-color: white;
-  font-size: 14px;
   cursor: pointer;
 `;
