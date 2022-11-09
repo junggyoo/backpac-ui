@@ -12,7 +12,6 @@ export default function CardMedia({ src, alt }: CardMediaProps) {
 const CardMediaWrapper = styled.img`
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 4;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 `;

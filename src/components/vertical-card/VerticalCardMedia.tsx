@@ -15,7 +15,6 @@ export default function VerticalCardMedia({
 const VerticalCardMedioWrapper = styled.img`
   display: block;
   width: 40%;
-  aspect-ratio: 4 / 4;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 `;
