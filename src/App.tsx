@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { Card, CardContent, CardMedia, CardBottom } from 'components/card';
 import { TextareaForm } from 'components/textarea-form';
 import {
-  VerticalCard,
-  VerticalCardContent,
-  VerticalCardMedia,
-} from 'components/vertical-card';
+  HorizontalCard,
+  HorizontalCardContent,
+  HorizontalCardMedia,
+} from 'components/horizontal-card';
 
 export default function App() {
   const [text, setText] = useState('Default 상태입니다.');
@@ -29,15 +29,15 @@ export default function App() {
           <CardMedia src="assets/idus.png" alt="idus" />
           <CardContent label="Card Label" title="Card Title" />
         </Card>
-        <VerticalCard>
-          <VerticalCardMedia src="assets/idus.png" alt="idus" />
-          <VerticalCardContent
+        <HorizontalCard>
+          <HorizontalCardMedia src="assets/idus.png" alt="idus" />
+          <HorizontalCardContent
             title="Lorem ipsum dolor sit amet"
             description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod."
             starPoint={3}
             bottomText="John Doe"
           />
-        </VerticalCard>
+        </HorizontalCard>
       </CardUIView>
       <InputFormUIView>
         <TextareaForm

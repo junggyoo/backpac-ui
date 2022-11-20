@@ -2,37 +2,37 @@ import styled from 'styled-components';
 import { CardStarPoint } from 'components/card';
 import Divider from 'components/divider';
 
-interface VerticalCardContentProps {
+interface HorizontalCardContentProps {
   title: string;
   description: string;
   starPoint?: number;
   bottomText?: string;
 }
 
-export default function VerticalCardContent({
+export default function HorizontalCardContent({
   title,
   description,
   starPoint,
   bottomText,
-}: VerticalCardContentProps) {
+}: HorizontalCardContentProps) {
   return (
-    <VerticalCardContentWrapper>
+    <HorizontalCardContentWrapper>
       <Title>{title}</Title>
       <Description>{description}</Description>
       <BottomWrapper>
         <CardStarPoint starPoint={starPoint} />
         {bottomText && (
           <>
-            <Divider width="2px" height="100%" vertical />
+            <Divider width="2px" height="100%" Horizontal />
             <BottomText>{bottomText}</BottomText>
           </>
         )}
       </BottomWrapper>
-    </VerticalCardContentWrapper>
+    </HorizontalCardContentWrapper>
   );
 }
 
-const VerticalCardContentWrapper = styled.div`
+const HorizontalCardContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
